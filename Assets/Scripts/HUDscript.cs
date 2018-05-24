@@ -5,15 +5,16 @@ using UnityEngine;
 public class HUDscript : MonoBehaviour {
 
     float playerScore = 0;
+	private float _initialCameraPos = 0;
 
 	// Use this for initialization
 	void Start () {
-		
+		_initialCameraPos = Camera.main.transform.position.x;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        playerScore += Time.deltaTime;
+        
 	}
 
 
@@ -24,6 +25,6 @@ public class HUDscript : MonoBehaviour {
 
     void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 100, 300), "Score:" + (int) (playerScore * 100));
+		GUI.Label(new Rect(20, 20, 100, 300), "Score:" + (int) ((Camera.main.transform.position.x - _initialCameraPos + playerScore) * 100));
     }
 }
