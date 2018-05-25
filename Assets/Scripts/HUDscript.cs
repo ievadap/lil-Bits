@@ -18,13 +18,14 @@ public class HUDscript : MonoBehaviour {
 	}
 
 
-    public void IncreaseScore(int amount)
-    {
+    public void IncreaseScore (int amount) {
         playerScore += amount;
     }
 
-    void OnGUI()
-    {
-		GUI.Label(new Rect(20, 20, 100, 300), "Score:" + (int) ((Camera.main.transform.position.x - _initialCameraPos + playerScore) * 100));
+    void OnGUI () {
+		GUI.Label(
+			new Rect(20, 20, 100, 300), 
+			"Score:" + (int) ((Camera.main.transform.position.x - _initialCameraPos + playerScore) * 100)
+		);
     }
 }

@@ -6,10 +6,8 @@ public class PowerUpScript : MonoBehaviour {
 
     HUDscript hud;
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
+    void OnTriggerEnter2D (Collider2D other) {
+        if (other.tag == "Player") {
             hud = GameObject.Find("Main Camera").GetComponent<HUDscript>();
             hud.IncreaseScore(10);
             Destroy(this.gameObject);

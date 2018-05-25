@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class DestroyerScript : MonoBehaviour {
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
+    void OnTriggerEnter2D (Collider2D other) {
+        if (other.tag == "Player") {
 			Application.Quit ();
         }
 
-        if (other.gameObject.transform.parent)
-        {
+        if (other.gameObject.transform.parent) {
             Destroy(other.gameObject.transform.parent.gameObject);
-        }
-        else
-        {
+        } else {
             Destroy(other.gameObject);
         }
     }
