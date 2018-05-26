@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HUDscript : MonoBehaviour {
 
+	public static int scoreValue;
     float playerScore = 0;
 	private float _initialCameraPos = 0;
 
@@ -23,9 +24,7 @@ public class HUDscript : MonoBehaviour {
     }
 
     void OnGUI () {
-		GUI.Label(
-			new Rect(20, 20, 100, 300), 
-			"Score:" + (int) ((Camera.main.transform.position.x - _initialCameraPos + playerScore) * 100)
-		);
+		scoreValue = (int)((Camera.main.transform.position.x - _initialCameraPos + playerScore) * 100);
+		GUI.Label(new Rect(20, 20, 100, 300), "Score:" + scoreValue);
     }
 }

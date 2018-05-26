@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DestroyerScript : MonoBehaviour {
 
     void OnTriggerEnter2D (Collider2D other) {
         if (other.tag == "Player") {
-			Application.Quit ();
+			SavePlayerProgress ();
+			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         if (other.gameObject.transform.parent) {
@@ -24,5 +26,9 @@ public class DestroyerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	private void SavePlayerProgress() {
+		PlayerPrefs.SetInt("currentScore", HUDscript.scoreValue);
 	}
 }
