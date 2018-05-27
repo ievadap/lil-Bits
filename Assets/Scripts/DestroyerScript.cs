@@ -29,6 +29,6 @@ public class DestroyerScript : MonoBehaviour {
 	}
 
 	private void SavePlayerProgress() {
-		PlayerPrefs.SetInt("currentScore", HUDscript.scoreValue);
+        ScoreManagerScript.RegisterLatestScore(HUDscript.scoreValue);
 	}
 }

@@ -10,7 +10,13 @@ public class PowerUpScript : MonoBehaviour {
         if (other.tag == "Player") {
             hud = GameObject.Find("Main Camera").GetComponent<HUDscript>();
             hud.IncreaseScore(10);
-            Destroy(this.gameObject);
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(this.gameObject, 3f);
+
+            if(Settings.MusicSettings.IsMusicOn)
+            {
+                gameObject.GetComponent<AudioSource>().Play();
+            }
         }
     }
 
