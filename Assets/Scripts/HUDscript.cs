@@ -25,6 +25,6 @@ public class HUDscript : MonoBehaviour {
 
     void OnGUI () {
 		scoreValue = (int)((Camera.main.transform.position.x - _initialCameraPos + playerScore) * 100);
-		GUI.Label(new Rect(20, 20, 100, 300), "Score:" + scoreValue);
+		GUI.Label(new Rect(20, 20, 500, 1500), "Score " + scoreValue);
     }
 }
